@@ -46,16 +46,20 @@
     <span id="losses"></span>
   </div>
 
+  <h3>Counter: </h3>
+  <span id="display"></span>
+</div>
+
 
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script type="text/javascript">
 
   var targetNumber = [];
   var counter = 0;
-  var wins = 1;
-  var losses = 1;
+  var wins = 0;
+  var losses = 0;
 
-  targetNumber=Math.floor((Math.random() * 10) + 1);
+  targetNumber=Math.floor((Math.random() * 13) + 1);
   $("#number-to-guess").text(targetNumber);
 
   var numberOptions = [10, 5, 3, 7];
@@ -72,6 +76,7 @@
     $("#crystals").append(imageCrystal);
   }
   
+  $("#display").text(counter);
 
   // This time, our click event applies to every single crystal on the page. Not just one.
   $(".crystal-image").on("click", function() {
@@ -84,17 +89,40 @@
     alert("New score: " + counter);
 
     if (counter === targetNumber) {
-        alert("You win!");
-        $("#wins").html(wins++);
+      wins++ 
+      alert("You win!");
+  
+        $("#wins").html(wins);
+        
     }
 
     else if (counter >= targetNumber) {
+      losses++
+      $("#losses").text(losses);
       
-      $("#losses").text(losses++);
-  
+
+    // reset counter 
       alert("You lose!!");
     }
+
+    // $("#display").empty();
+
+    // if (losses++) {
+    //  $("").empty();
+    // }
   });
+
+//    $("#clear").on("click", function() {
+
+// // Inside the on-click event...
+
+// // 13. Use the jQuery "empty()" method to clear the contents of the "#display" div.
+// // We use find here and once its found it will empty the element
+// $("#display").empty();
+
+// });
+
+
 
 
 
