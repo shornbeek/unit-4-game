@@ -1,0 +1,19 @@
+body {
+    font-family: 'Montserrat', sans-serif;
+}
+
+h1 {
+    text-align: center;
+}
+
+.crystal-image {
+  width: 200px;
+  height: 200px;
+ padding: 22px;
+
+}
+
+#crystals {
+ margin: 0 auto;
+ text-align: center;
+}
