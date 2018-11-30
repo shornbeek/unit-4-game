@@ -36,11 +36,15 @@
   <!-- Note that this div is now empty. We will fill it dynamically -->
   <div id="crystals"></div>
 
-  <div class="style">  Wins: </div>
-  <div id="winCount"> 0</div>
+  <div>
+    <h3>Wins: </h3>
+    <span id="wins"></span>
+  </div>
 
-  <div class="style"> Losses: </div>
-  <div id="lossCount"> 0</div>
+  <div>
+    <h3>Losses: </h3>
+    <span id="losses"></span>
+  </div>
 
 
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
@@ -48,10 +52,10 @@
 
   var targetNumber = [];
   var counter = 0;
-  var win = 0;
-  var lose = 0;
+  var wins = 1;
+  var losses = 1;
 
-  targetNumber=Math.floor((Math.random() * 100) + 1);
+  targetNumber=Math.floor((Math.random() * 10) + 1);
   $("#number-to-guess").text(targetNumber);
 
   var numberOptions = [10, 5, 3, 7];
@@ -80,10 +84,14 @@
     alert("New score: " + counter);
 
     if (counter === targetNumber) {
-      alert("You win!");
+        alert("You win!");
+        $("#wins").html(wins++);
     }
 
     else if (counter >= targetNumber) {
+      
+      $("#losses").text(losses++);
+  
       alert("You lose!!");
     }
   });
